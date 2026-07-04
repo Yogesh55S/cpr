@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design-system colour tokens — consumed by Tailwind via CSS var() references */
+:root {
+  --teal-deep:   #0B3D3E;
+  --teal-bright: #16888C;
+  --gold:        #C9A227;
+  --ivory:       #F7F6F2;
+  --white:       #FFFFFF;
+  --charcoal:    #1B2B2C;
+
+  /* legacy aliases kept for existing components */
+  --background:  #ffffff;
+  --foreground:  #2d3748;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Space Grotesk for all headings by default */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+}
+
+@layer base {
+  input, select, textarea {
+    @apply border border-light-border rounded-button px-4 py-3 text-charcoal
+           focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold
+           transition-colors;
+  }
+}
+
+/* ── Hero entrance animations ─────────────────────────────────────────────── */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.hero-fade-up {
+  opacity: 0;
+  animation: heroFadeUp 300ms ease forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── Marquee ──────────────────────────────────────────────────────────────── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee 30s linear infinite; }
+
+/* ── Glassmorphic ─────────────────────────────────────────────────────────── */
+.glass {
+  background: rgba(250, 246, 240, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #C9A227; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #b08d4b; }
