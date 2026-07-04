@@ -13,10 +13,13 @@ export default function FareCard({ fare, onBook }: FareCardProps) {
   const routeInfo = `${fare.origin.city} (${fare.origin.iata}) → ${fare.destination.city} (${fare.destination.iata})`;
 
   return (
-    <div className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
+    <div 
+      onClick={() => onBook(routeInfo)}
+      className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col cursor-pointer"
+    >
 
       {/* ── Image ── */}
-      <div className="relative aspect-[16/9] overflow-hidden">
+      <div className="relative aspect-[3/2] overflow-hidden">
         <Image
           src={fare.image}
           alt={`${fare.origin.city} to ${fare.destination.city} flight`}
@@ -76,7 +79,6 @@ export default function FareCard({ fare, onBook }: FareCardProps) {
         </div>
 
         <button
-          onClick={() => onBook(routeInfo)}
           className="shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold
                      bg-[#0B3D3E] text-white hover:bg-[#C9A227] hover:text-[#0B3D3E]
                      transition-all duration-200 group/btn"

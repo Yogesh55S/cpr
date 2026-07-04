@@ -88,14 +88,14 @@ export default function Footer() {
     <footer
       className="relative text-white overflow-hidden"
       style={{
-        backgroundImage: "url('/images/footer-bg.jpg')",
+        backgroundImage: "url('/images/footer-bg-4k.png')",
         backgroundSize: "cover",
-        backgroundPosition: "center top",
+        backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
       }}
     >
       {/* ── Dark overlay so text stays readable while image shows through ── */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#023535]/93 via-[#0B3D3E]/90 to-[#023535]/96" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-[#023535] via-[#0B3D3E] to-[#023535] opacity-90" />
 
       {/* ── Top gold accent line ── */}
       <div className="relative z-10 h-[3px] bg-gradient-to-r from-transparent via-[#C9A227] to-transparent" />

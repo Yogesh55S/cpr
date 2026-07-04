@@ -13,7 +13,7 @@ export default function BlogPostClient({ post }: Props) {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-[#0B3D3E] min-h-[30vh] flex items-center justify-center pt-[60px] lg:pt-[70px]">
+      <section className="relative bg-[#0B3D3E] min-h-[50vh] flex items-center justify-center pt-[100px] pb-[140px] lg:pt-[120px] lg:pb-[160px]">
         <div className="relative z-10 text-center px-4 max-w-3xl">
           <div className="flex items-center justify-center gap-3 text-sm text-gold mb-4">
             <span>{new Date(post.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</span>
@@ -27,7 +27,7 @@ export default function BlogPostClient({ post }: Props) {
       </section>
 
       {/* Cover Image */}
-      <div className="max-w-4xl mx-auto px-4 md:px-6 -mt-16 relative z-10">
+      <div className="max-w-4xl mx-auto px-4 md:px-6 -mt-32 relative z-10">
         <div className="relative aspect-video rounded-card overflow-hidden shadow-card">
           <Image
             src={post.coverImage}
