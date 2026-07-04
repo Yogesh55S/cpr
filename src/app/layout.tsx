@@ -56,6 +56,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://cheapprimefares.com" },
 };
 
+import SplashScreen from "@/components/SplashScreen";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -64,6 +66,7 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable} font-body antialiased`}
       >
+        <SplashScreen />
         {children}
       </body>
     </html>

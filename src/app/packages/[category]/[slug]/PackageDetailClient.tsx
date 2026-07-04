@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { Package } from "@/data/packages";
-import { Clock, MapPin, Check, X, ArrowRight, CalendarDays, Info } from "lucide-react";
+import { Clock, MapPin, Check, X, ArrowRight, CalendarDays, Info, ChevronDown } from "lucide-react";
 import { useModal } from "@/lib/ModalContext";
 
 interface Props {
@@ -11,6 +12,11 @@ interface Props {
 
 export default function PackageDetailClient({ pkg }: Props) {
   const { openEnquiry } = useModal();
+  const [expandedDay, setExpandedDay] = useState<number | null>(1);
+
+  const toggleDay = (dayIndex: number) => {
+    setExpandedDay(expandedDay === dayIndex ? null : dayIndex);
+  };
 
   return (
     <div className="bg-slate-50 min-h-screen">
@@ -93,27 +99,51 @@ export default function PackageDetailClient({ pkg }: Props) {
               </div>
             </div>
 
-            {/* Itinerary */}
+            {/* Itinerary Accordion */}
             {pkg.itinerary && pkg.itinerary.length > 0 && (
               <div>
                 <h2 className="font-display text-3xl font-bold text-navy mb-6">Tour Itinerary</h2>
-                <div className="space-y-6">
-                  {pkg.itinerary.map((day) => (
-                    <div key={day.day} className="flex gap-6 group">
-                      <div className="flex flex-col items-center">
-                        <div className="w-12 h-12 rounded-full bg-[#0B3D3E] text-gold flex items-center justify-center font-bold text-lg shrink-0 z-10 group-hover:scale-110 transition-transform">
-                          {day.day}
+                <div className="space-y-4">
+                  {pkg.itinerary.map((day) => {
+                    const isExpanded = expandedDay === day.day;
+                    
+                    return (
+                      <div key={day.day} className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden transition-all duration-300">
+                        {/* Accordion Header */}
+                        <button
+                          onClick={() => toggleDay(day.day)}
+                          className="w-full text-left px-5 py-4 flex items-center justify-between hover:bg-slate-50 transition-colors focus:outline-none"
+                        >
+                          <div className="flex items-center gap-4">
+                            <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm shrink-0 transition-colors duration-300 ${
+                              isExpanded ? "bg-[#0B3D3E] text-gold" : "bg-slate-100 text-slate-500"
+                            }`}>
+                              D{day.day}
+                            </div>
+                            <h3 className={`font-bold transition-colors duration-300 ${isExpanded ? "text-[#0B3D3E]" : "text-slate-700"}`}>
+                              {day.title}
+                            </h3>
+                          </div>
+                          <div className={`shrink-0 transition-transform duration-300 ${isExpanded ? "rotate-180 text-gold" : "text-slate-400"}`}>
+                            <ChevronDown size={20} />
+                          </div>
+                        </button>
+
+                        {/* Accordion Content */}
+                        <div 
+                          className={`px-5 transition-all duration-300 ease-in-out origin-top ${
+                            isExpanded ? "max-h-[500px] opacity-100 pb-5" : "max-h-0 opacity-0 pb-0 overflow-hidden"
+                          }`}
+                        >
+                          <div className="pt-2 border-t border-slate-100 mt-2">
+                            <p className="text-slate-600 leading-relaxed text-sm md:text-base">
+                              {day.description}
+                            </p>
+                          </div>
                         </div>
-                        {day.day !== pkg.itinerary!.length && (
-                          <div className="w-0.5 h-full bg-slate-200 mt-2" />
-                        )}
                       </div>
-                      <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex-1 mb-2">
-                        <h3 className="text-xl font-bold text-navy mb-3">{day.title}</h3>
-                        <p className="text-slate-600 leading-relaxed">{day.description}</p>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             )}

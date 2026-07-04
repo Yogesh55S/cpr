@@ -99,19 +99,15 @@ export default function Header() {
   // On inner pages: always solid teal navbar so white text is readable on any page bg.
   // On homepage at top: transparent so hero image shows through.
   // On homepage after scroll: white frosted glass.
-  const navBg = isHeroPage
-    ? atTop
-      ? "bg-transparent"
-      : "bg-white/96 backdrop-blur-md shadow-sm border-b border-slate-100"
-    : scrolled
-      ? "bg-[#0B3D3E]/98 backdrop-blur-md shadow-md"
-      : "bg-[#0B3D3E]";
+  const navBg = atTop && isHeroPage
+    ? "bg-transparent"
+    : "bg-[#0B3D3E] shadow-md";
 
-  const logoText  = isHeroPage && !scrolled ? "text-white"    : isHeroPage ? "text-[#0B3D3E]" : "text-white";
-  const logoSub   = isHeroPage && !scrolled ? "text-white/55" : isHeroPage ? "text-slate-400"  : "text-white/60";
-  const linkBase  = isHeroPage && !scrolled ? "text-white/90" : isHeroPage ? "text-slate-700"  : "text-white/90";
-  const activeCol = isHeroPage && !scrolled ? "text-[#C9A227]" : isHeroPage ? "text-[#C9A227]" : "text-[#C9A227]";
-  const toggleCol = isHeroPage && !scrolled ? "text-white"    : isHeroPage ? "text-slate-700"  : "text-white";
+  const logoText  = "text-white";
+  const logoSub   = "text-white";
+  const linkBase  = "text-white/90";
+  const activeCol = "text-[#C9A227]";
+  const toggleCol = "text-white";
 
   return (
     <>
@@ -248,13 +244,7 @@ export default function Header() {
             {/* ── Desktop CTAs (lg+) ── */}
             <div className="hidden lg:flex items-center gap-2 shrink-0">
               <a href="tel:+919501737767"
-                className={`flex items-center gap-1.5 rounded-full font-semibold text-sm transition-all duration-200 border-2
-                            px-3 py-2 xl:px-4 xl:py-2
-                            ${(isHeroPage && !scrolled)
-                              ? "border-white/40 text-white hover:border-white hover:bg-white/10"
-                              : isHeroPage
-                                ? "border-[#0B3D3E] text-[#0B3D3E] hover:bg-[#0B3D3E] hover:text-white"
-                                : "border-white/40 text-white hover:border-white hover:bg-white/15"}`}
+                className="flex items-center gap-1.5 rounded-full font-semibold text-sm transition-all duration-200 border-2 px-3 py-2 xl:px-4 xl:py-2 border-white/40 text-white hover:border-white hover:bg-white/15"
                 aria-label="Call us">
                 <Phone size={14} />
                 <span className="hidden xl:inline">Call Now</span>
@@ -272,10 +262,7 @@ export default function Header() {
             {/* ── Mobile right side: Phone + WhatsApp icon buttons + Hamburger ── */}
             <div className="lg:hidden flex items-center gap-1">
               <a href="tel:+919501737767"
-                className={`flex items-center justify-center w-9 h-9 rounded-full transition-all duration-200
-                            ${(isHeroPage && !scrolled) || !isHeroPage
-                              ? "text-white hover:bg-white/15"
-                              : "text-[#0B3D3E] hover:bg-slate-100"}`}
+                className="flex items-center justify-center w-9 h-9 rounded-full transition-all duration-200 text-white hover:bg-white/15"
                 aria-label="Call us">
                 <Phone size={18} />
               </a>

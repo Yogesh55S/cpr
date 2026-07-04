@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80">
-  <rect width="200" height="80" fill="white"/>
-  <!-- Qatar maroon brand color -->
-  <rect x="0" y="0" width="8" height="80" fill="#5C0632"/>
-  <text x="20" y="30" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#5C0632">Qatar</text>
-  <text x="20" y="56" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#5C0632">Airways</text>
-</svg>

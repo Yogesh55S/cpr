@@ -51,9 +51,16 @@ const config: Config = {
           "0%":   { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        fly: {
+          "0%": { transform: "translateX(-150%) scale(0.8)", opacity: "0" },
+          "20%": { opacity: "1", transform: "translateX(-50%) scale(1)" },
+          "80%": { opacity: "1", transform: "translateX(50%) scale(1)" },
+          "100%": { transform: "translateX(150%) scale(0.8)", opacity: "0" },
+        },
       },
       animation: {
-        marquee: "marquee 30s linear infinite",
+        marquee: "marquee 40s linear infinite",
+        fly: "fly 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite",
       },
     },
   },
