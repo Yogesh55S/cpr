@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Clock, ArrowRight } from "lucide-react";
 import { Package } from "@/data/packages";
 
 interface PackageCardProps {
@@ -9,38 +10,58 @@ interface PackageCardProps {
 }
 
 export default function PackageCard({ pkg, onBook }: PackageCardProps) {
-  const formatPrice = () => {
-    if (pkg.currency === "USD") {
-      return `$${pkg.price}`;
-    }
-    return `₹${pkg.price.toLocaleString("en-IN")}`;
-  };
+  const formatPrice = () =>
+    pkg.currency === "USD"
+      ? `$${pkg.price.toLocaleString()}`
+      : `₹${pkg.price.toLocaleString("en-IN")}`;
 
   return (
-    <div className="group bg-white rounded-card shadow-card hover:shadow-card-hover transition-all duration-400 overflow-hidden">
-      {/* Image */}
-      <div className="relative aspect-[4/3] overflow-hidden">
+    <div className="group relative flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+
+      {/* ── Image ── */}
+      <div className="relative aspect-[3/2] overflow-hidden">
         <Image
           src={pkg.image}
           alt={`${pkg.name} holiday package`}
           fill
-          className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
+        {/* gradient scrim so price badge is readable */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+
+        {/* Duration pill — top left */}
+        <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs font-medium px-2.5 py-1 rounded-full">
+          <Clock size={11} />
+          {pkg.durationLabel}
+        </div>
+
+        {/* Price badge — bottom left */}
+        <div className="absolute bottom-3 left-3">
+          <p className="text-[11px] text-white/70 font-medium uppercase tracking-wider leading-none mb-0.5">
+            Starting from
+          </p>
+          <p className="text-2xl font-display font-bold text-[#C9A227] leading-none drop-shadow">
+            {formatPrice()}
+          </p>
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="p-4">
-        <h3 className="font-body font-semibold text-navy mb-1">{pkg.name}</h3>
-        <p className="text-sm text-muted mb-2">{pkg.durationLabel}</p>
-        <p className="text-xl font-display font-bold text-gold mb-3">
-          {formatPrice()}
+      {/* ── Body ── */}
+      <div className="flex flex-col flex-1 p-4">
+        <h3 className="font-display font-bold text-[#0B3D3E] text-base mb-1 leading-snug">
+          {pkg.name}
+        </h3>
+        <p className="text-xs text-slate-500 leading-relaxed line-clamp-2 flex-1 mb-4">
+          {pkg.summary}
         </p>
+
         <button
           onClick={() => onBook(pkg.name)}
-          className="w-full py-2.5 bg-gold text-navy font-medium rounded-button hover:bg-gold/90 transition-colors text-sm"
+          className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-semibold bg-[#0B3D3E] text-white hover:bg-[#C9A227] hover:text-[#0B3D3E] transition-all duration-200 group/btn"
         >
-          Book Now
+          Book This Package
+          <ArrowRight size={14} className="transition-transform duration-200 group-hover/btn:translate-x-0.5" />
         </button>
       </div>
     </div>

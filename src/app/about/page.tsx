@@ -13,7 +13,7 @@ export default function AboutPage() {
   return (
     <ClientLayout>
       {/* Hero */}
-      <section className="relative bg-navy min-h-[40vh] flex items-center justify-center overflow-hidden">
+      <section className="relative bg-navy min-h-[40vh] flex items-center justify-center overflow-hidden pt-[60px] lg:pt-[70px]">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{ backgroundImage: "url(/images/hero-video-poster.jpg)" }}

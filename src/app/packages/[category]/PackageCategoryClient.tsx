@@ -15,7 +15,7 @@ export default function PackageCategoryClient({ categoryName, packages }: Props)
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-navy min-h-[35vh] flex items-center justify-center">
+      <section className="relative bg-[#0B3D3E] min-h-[35vh] flex items-center justify-center pt-[60px] lg:pt-[70px]">
         <div className="relative z-10 text-center px-4">
           <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-3">
             {categoryName} Packages

@@ -13,7 +13,7 @@ export default function BlogPostClient({ post }: Props) {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-navy min-h-[30vh] flex items-center justify-center">
+      <section className="relative bg-[#0B3D3E] min-h-[30vh] flex items-center justify-center pt-[60px] lg:pt-[70px]">
         <div className="relative z-10 text-center px-4 max-w-3xl">
           <div className="flex items-center justify-center gap-3 text-sm text-gold mb-4">
             <span>{new Date(post.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</span>
