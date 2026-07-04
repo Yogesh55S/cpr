@@ -27,7 +27,7 @@ export default function BlogPostClient({ post }: Props) {
       </section>
 
       {/* Cover Image */}
-      <div className="max-w-4xl mx-auto px-4 md:px-6 -mt-32 relative z-10">
+      <div className="max-w-4xl mx-auto px-4 md:px-6 -mt-48 relative z-10">
         <div className="relative aspect-video rounded-card overflow-hidden shadow-card">
           <Image
             src={post.coverImage}

@@ -313,7 +313,6 @@ export default function HomePage() {
               <PackageCard
                 key={pkg.id}
                 pkg={pkg}
-                onBook={(name) => openEnquiry(name)}
               />
             ))}
           </div>
@@ -394,11 +393,12 @@ export default function HomePage() {
           {/* Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {awesomePackages.map((pkg) => (
-              <div
+              <Link
                 key={pkg.id}
+                href={`/packages/${pkg.category}/${pkg.slug}`}
                 className="group relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden
                            hover:border-[#C9A227]/40 hover:bg-white/8 transition-all duration-300 hover:-translate-y-1
-                           flex flex-col"
+                           flex flex-col cursor-pointer block"
               >
                 {/* Image */}
                 <div className="relative aspect-[4/3] overflow-hidden">
@@ -434,18 +434,17 @@ export default function HomePage() {
                         ${pkg.price.toLocaleString()}
                       </p>
                     </div>
-                    <button
-                      onClick={() => openEnquiry(pkg.name)}
+                    <div
                       className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold
                                  bg-[#C9A227] text-[#0B3D3E] hover:bg-[#d4ac30]
                                  transition-colors duration-200"
                     >
                       Book Now
                       <ArrowRight size={13} />
-                    </button>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

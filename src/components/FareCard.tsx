@@ -78,14 +78,14 @@ export default function FareCard({ fare, onBook }: FareCardProps) {
           </p>
         </div>
 
-        <button
+        <div
           className="shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold
                      bg-[#0B3D3E] text-white hover:bg-[#C9A227] hover:text-[#0B3D3E]
                      transition-all duration-200 group/btn"
         >
           Book Now
           <ArrowRight size={14} className="transition-transform duration-200 group-hover/btn:translate-x-0.5" />
-        </button>
+        </div>
       </div>
     </div>
   );

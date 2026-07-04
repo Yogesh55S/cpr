@@ -1,22 +1,25 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Clock, ArrowRight } from "lucide-react";
 import { Package } from "@/data/packages";
 
 interface PackageCardProps {
   pkg: Package;
-  onBook: (name: string) => void;
 }
 
-export default function PackageCard({ pkg, onBook }: PackageCardProps) {
+export default function PackageCard({ pkg }: PackageCardProps) {
   const formatPrice = () =>
     pkg.currency === "USD"
       ? `$${pkg.price.toLocaleString()}`
       : `₹${pkg.price.toLocaleString("en-IN")}`;
 
   return (
-    <div className="group relative flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+    <Link 
+      href={`/packages/${pkg.category}/${pkg.slug}`}
+      className="group relative flex flex-col bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+    >
 
       {/* ── Image ── */}
       <div className="relative aspect-[3/2] overflow-hidden">
@@ -56,14 +59,13 @@ export default function PackageCard({ pkg, onBook }: PackageCardProps) {
           {pkg.summary}
         </p>
 
-        <button
-          onClick={() => onBook(pkg.name)}
+        <div
           className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-semibold bg-[#0B3D3E] text-white hover:bg-[#C9A227] hover:text-[#0B3D3E] transition-all duration-200 group/btn"
         >
-          Book This Package
+          View Details
           <ArrowRight size={14} className="transition-transform duration-200 group-hover/btn:translate-x-0.5" />
-        </button>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }

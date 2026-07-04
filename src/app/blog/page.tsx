@@ -32,9 +32,10 @@ export default function BlogPage() {
         <div className="max-w-content mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => (
-              <article
+              <Link
+                href={`/blog/${post.slug}/`}
                 key={post.slug}
-                className="bg-white rounded-card shadow-card hover:shadow-card-hover transition-all duration-400 overflow-hidden group"
+                className="block bg-white rounded-card shadow-card hover:shadow-card-hover transition-all duration-400 overflow-hidden group"
               >
                 <div className="relative aspect-video overflow-hidden">
                   <Image
@@ -57,14 +58,13 @@ export default function BlogPage() {
                   <p className="text-sm text-charcoal/80 line-clamp-3 mb-4">
                     {post.excerpt}
                   </p>
-                  <Link
-                    href={`/blog/${post.slug}/`}
-                    className="text-gold font-medium text-sm hover:underline"
+                  <span
+                    className="inline-block text-gold font-medium text-sm hover:underline"
                   >
                     Read More
-                  </Link>
+                  </span>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

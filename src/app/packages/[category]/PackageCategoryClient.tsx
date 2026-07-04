@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Package } from "@/data/packages";
-import { useModal } from "@/lib/ModalContext";
 
 interface Props {
   categoryName: string;
@@ -10,8 +10,6 @@ interface Props {
 }
 
 export default function PackageCategoryClient({ categoryName, packages }: Props) {
-  const { openEnquiry } = useModal();
-
   return (
     <>
       {/* Hero */}
@@ -31,9 +29,10 @@ export default function PackageCategoryClient({ categoryName, packages }: Props)
         <div className="max-w-content mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {packages.map((pkg) => (
-              <div
+              <Link
+                href={`/packages/${pkg.category}/${pkg.slug}`}
                 key={pkg.id}
-                className="bg-white rounded-card shadow-card hover:shadow-card-hover transition-all duration-400 overflow-hidden group"
+                className="block bg-white rounded-card shadow-card hover:shadow-card-hover transition-all duration-400 overflow-hidden group cursor-pointer"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
@@ -55,14 +54,13 @@ export default function PackageCategoryClient({ categoryName, packages }: Props)
                   <p className="text-sm text-charcoal/80 mb-4 line-clamp-2">
                     {pkg.summary}
                   </p>
-                  <button
-                    onClick={() => openEnquiry(pkg.name)}
-                    className="w-full py-2.5 bg-gold text-navy font-medium rounded-button hover:bg-gold/90 transition-colors"
+                  <div
+                    className="w-full text-center py-2.5 bg-gold text-navy font-medium rounded-button hover:bg-gold/90 transition-colors inline-block"
                   >
-                    Book
-                  </button>
+                    View Details
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
