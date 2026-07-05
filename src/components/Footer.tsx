@@ -113,7 +113,7 @@ export default function Footer() {
             <p className="text-[10px] tracking-[0.22em] uppercase text-[#C9A227] mb-4">
               International Travel Experts
             </p>
-            <p className="text-sm text-white/60 leading-relaxed">
+            <p className="text-sm text-white leading-relaxed">
               Over a decade connecting travelers across continents with unbeatable fares
               and curated holiday experiences. Trusted by thousands worldwide.
             </p>
@@ -129,7 +129,7 @@ export default function Footer() {
               ].map(({ href, Icon, label }) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
                   className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center
-                             text-white/60 hover:border-[#C9A227] hover:text-[#C9A227] transition-all duration-200">
+                             text-white hover:border-[#C9A227] hover:text-[#C9A227] transition-all duration-200">
                   <Icon size={15} />
                 </a>
               ))}
@@ -137,7 +137,7 @@ export default function Footer() {
             <div className="flex items-center gap-2">
               <a href="tel:+919501737767"
                 className="flex items-center gap-2 px-3.5 py-2 rounded-full border border-white/20
-                           text-sm text-white/80 hover:border-[#C9A227] hover:text-[#C9A227] transition-all">
+                           text-sm text-white hover:border-[#C9A227] hover:text-[#C9A227] transition-all">
                 <Phone size={13} />
                 +91-9501737767
               </a>
@@ -162,7 +162,7 @@ export default function Footer() {
               {importantLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href}
-                    className="text-sm text-white/55 hover:text-white transition-colors leading-snug">
+                    className="text-sm text-white hover:text-white transition-colors leading-snug">
                     {link.label}
                   </Link>
                 </li>
@@ -177,7 +177,7 @@ export default function Footer() {
               {packageLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href}
-                    className="text-sm text-white/55 hover:text-white transition-colors leading-snug">
+                    className="text-sm text-white hover:text-white transition-colors leading-snug">
                     {link.label}
                   </Link>
                 </li>
@@ -190,7 +190,7 @@ export default function Footer() {
             <h4 className="text-[11px] font-bold text-[#C9A227] uppercase tracking-widest mb-5">Partner Airlines</h4>
             <ul className="space-y-2.5">
               {airlines.map((airline) => (
-                <li key={airline} className="text-sm text-white/55">{airline}</li>
+                <li key={airline} className="text-sm text-white">{airline}</li>
               ))}
             </ul>
           </div>
@@ -199,17 +199,17 @@ export default function Footer() {
           <div>
             <h4 className="text-[11px] font-bold text-[#C9A227] uppercase tracking-widest mb-5">Contact Us</h4>
             <div className="space-y-3 mb-7">
-              <div className="flex items-start gap-2.5 text-sm text-white/55">
+              <div className="flex items-start gap-2.5 text-sm text-white">
                 <MapPin size={14} className="mt-0.5 shrink-0 text-[#C9A227]/70" />
                 <span className="leading-snug">30 N Gould St Ste R, Sheridan, WY 82801</span>
               </div>
               <a href="tel:+919501737767"
-                className="flex items-center gap-2.5 text-sm text-white/70 hover:text-[#C9A227] transition-colors">
+                className="flex items-center gap-2.5 text-sm text-white hover:text-[#C9A227] transition-colors">
                 <Phone size={13} className="shrink-0 text-[#C9A227]/70" />
                 +91-9501737767
               </a>
               <a href="mailto:info@cheapprimefares.com"
-                className="flex items-center gap-2.5 text-sm text-white/70 hover:text-[#C9A227] transition-colors break-all">
+                className="flex items-center gap-2.5 text-sm text-white hover:text-[#C9A227] transition-colors break-all">
                 <Mail size={13} className="shrink-0 text-[#C9A227]/70" />
                 info@cheapprimefares.com
               </a>
@@ -222,7 +222,7 @@ export default function Footer() {
                   <div className="shrink-0 overflow-hidden rounded-sm shadow-sm">
                     <Flag size={28} />
                   </div>
-                  <span className="text-sm text-white/65">{label}</span>
+                  <span className="text-sm text-white">{label}</span>
                 </div>
               ))}
             </div>
@@ -233,7 +233,7 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6
                         py-6 border-t border-b border-white/10 mb-6">
           <div className="flex items-center gap-3">
-            <span className="text-xs text-white/40 uppercase tracking-wider">Approved by</span>
+            <span className="text-xs text-white uppercase tracking-wider">Approved by</span>
             <img src="/images/badge-trust.png" alt="Trust badge" className="h-9 object-contain" />
           </div>
           <div className="hidden sm:block w-px h-8 bg-white/10" />
@@ -241,7 +241,7 @@ export default function Footer() {
         </div>
 
         {/* ── Copyright ── */}
-        <p className="text-center text-xs text-white/30">
+        <p className="text-center text-xs text-white">
           &copy; {new Date().getFullYear()} Cheap Prime Fares. All rights reserved.
         </p>
       </div>

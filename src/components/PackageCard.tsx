@@ -41,7 +41,7 @@ export default function PackageCard({ pkg }: PackageCardProps) {
 
         {/* Price badge — bottom left */}
         <div className="absolute bottom-3 left-3">
-          <p className="text-[11px] text-white/70 font-medium uppercase tracking-wider leading-none mb-0.5">
+          <p className="text-[11px] text-white font-medium uppercase tracking-wider leading-none mb-0.5">
             Starting from
           </p>
           <p className="text-2xl font-display font-bold text-[#C9A227] leading-none drop-shadow">
@@ -55,7 +55,7 @@ export default function PackageCard({ pkg }: PackageCardProps) {
         <h3 className="font-display font-bold text-[#0B3D3E] text-base mb-1 leading-snug">
           {pkg.name}
         </h3>
-        <p className="text-xs text-slate-500 leading-relaxed line-clamp-2 flex-1 mb-4">
+        <p className="text-xs text-slate-800 leading-relaxed line-clamp-2 flex-1 mb-4">
           {pkg.summary}
         </p>
 
